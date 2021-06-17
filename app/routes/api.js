@@ -1,9 +1,9 @@
 const router = require("express").Router();
 
-const apiEnviosRouter = require("./api/envios.js");
+const shippingsRouter = require("./api/envios.js");
 
-//Todas las rutas '/api/envios' son controladas por envios.js
-router.use("/envios", apiEnviosRouter);
+//Todas las rutas '/api/shippings' son controladas por envios.js
+router.use("/shippings", shippingsRouter);
 
 module.exports = router;
 

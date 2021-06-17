@@ -1,11 +1,10 @@
 module.exports = (sequelize, Sequelize) => {
-  const Table =  sequelize.define('table', {
+  const Shippings =  sequelize.define('shippings', {
       id:{
           type: Sequelize.INTEGER,
           primaryKey : true,
           autoIncrement: true,
           allowNull: false
-
       },
       customer:{
         type: Sequelize.STRING(100),
@@ -17,22 +16,25 @@ module.exports = (sequelize, Sequelize) => {
       },
       status: {
         type: Sequelize.STRING(10),
+        validate: {
+          isIn: {
+            args:[['inprocess', 'pending', 'delivered']],
+            msg:"status must be one of these values ['inprocess', 'pending', 'delivered']"
+          }
+        },
         allowNull: false
       },
       origin_lat:{
         type: Sequelize.DECIMAL(11,8),
         allowNull: false
-
       },
       origin_long:{
         type: Sequelize.DECIMAL(11,8),
         allowNull: false
-
       },
       current_lat:{
         type: Sequelize.DECIMAL(11,8),
         allowNull: false
-
       },
       current_long:{
         type: Sequelize.DECIMAL(11,8),
@@ -59,7 +61,7 @@ module.exports = (sequelize, Sequelize) => {
         allowNull: false
       }
     });
-    return Table;
+    return Shippings;
 
   }
 
