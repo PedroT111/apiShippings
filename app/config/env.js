@@ -1,8 +1,8 @@
 const env = {
-    database: "EXlKKXJZ7E", //name database
-    username: "EXlKKXJZ7E",
-    password: "HABJZa8Q7N",
-    host: "remotemysql.com",   //localhost
+    database:process.env.DB_NAME, //name database
+    username:process.env.DB_USER,
+    password:process.env.DB_PASS,
+    host:process.env.DB_HOST,  
     dialect: "mysql",
   };
   

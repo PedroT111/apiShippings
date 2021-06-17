@@ -1,6 +1,6 @@
 const env = require("./env.js");
 
-const Sequelize = require("sequelize");
+const Sequelize = require("sequelize"); 
 
 const sequelize = new Sequelize(env.database, env.username, env.password, {
   host: env.host,
@@ -14,7 +14,7 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 //Models
-db.table = require("../models/shippings.js")(sequelize, Sequelize);
+db.shippings = require("../models/shippings.js")(sequelize, Sequelize);
 
-sequelize.sync(); //puse esto y funciono todo
+sequelize.sync(); 
 module.exports = db;
