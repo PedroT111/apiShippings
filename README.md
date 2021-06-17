@@ -6,10 +6,10 @@
 
 
 -Routes:
-*POST /api/shippings/ - create a shipping
-*GET /api/shippings/ - get all shippings
-*GET /v1/users/:id - get shipping
-*PUT /v1/users/:id - update shipping
+*POST /api/shippings - create a shipping
+*GET /api/shippings - get all shippings
+*GET /api/shippings/:id - get shipping
+*PUT /api/shippings/:id - update shipping
 
 
 
