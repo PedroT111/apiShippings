@@ -2,7 +2,7 @@
 -Instrucciones:
 *1-Encontrará un archivo con el nombre .env el directorio raíz del proyecto
 *2-Cambie los valores del archivo a su entorno.
-*3-Ejecute el desarrollo y cree la base de datos con: node server
+*3-Ejecute el desarrollo en la carpeta app y cree la base de datos con: node server
 
 
 -Routes:
