@@ -43,17 +43,16 @@ router.post("/", async (req, res) => {
     let end_lat = req.body.end_lat
     
     try{ 
-        console.log("error")
         const envio = await Shippings.create({
             customer: req.body.customer,
             describ: req.body.describ,
             status: req.body.status,
             origin_lat: req.body.origin_lat,
             origin_long: req.body.origin_long,
-            current_lat: req.body.current_lat,
-            current_long: req.body.current_long,
-            end_lat: req.body.end_lat,
-            end_long: req.body.end_long,
+            current_lat: current_lat,
+            current_long: current_long,
+            end_lat: end_lat,
+            end_long: end_long,
             aprox_distance: getDistance(current_long,current_lat,end_long,end_lat)//getDistance()
         });
        
