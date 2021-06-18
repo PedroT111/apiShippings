@@ -5,7 +5,7 @@ const Shippings= db.shippings;
 
 
 //Funcion calcular distancia
-/*
+
 var EARTH_RADIUS = 6378.137; // radio de la Tierra   
 function rad(d) {
     return d * Math.PI / 180.0;
@@ -20,16 +20,16 @@ function getDistance(lng1, lat1, lng2, lat2) {
         * Math.pow(Math.sin(b / 2), 2)));
     s = s * EARTH_RADIUS;
     s = Math.round(s * 10000) / 10000;
-    return distance;
-}*/
+    return s;
+}
 
 
 
 //peticion get --> trae todos los envíos
 router.get('/', async (req, res) => {
-    console.log("error")
+    
     const envio = await Shippings.findAll();
-    console.log(envio);
+    
     res.json(envio);
     
 });
@@ -37,6 +37,11 @@ router.get('/', async (req, res) => {
 //petición POST --> crea el envío 
 router.post("/", async (req, res) => {
       
+    let current_lat = req.body.current_lat
+    let current_long = req.body.current_long;
+    let end_long = req.body.end_long;
+    let end_lat = req.body.end_lat
+    
     try{ 
         console.log("error")
         const envio = await Shippings.create({
@@ -49,7 +54,7 @@ router.post("/", async (req, res) => {
             current_long: req.body.current_long,
             end_lat: req.body.end_lat,
             end_long: req.body.end_long,
-            aprox_distance: req.body.aprox_distance//getDistance()
+            aprox_distance: getDistance(current_long,current_lat,end_long,end_lat)//getDistance()
         });
        
         res.status(201);
